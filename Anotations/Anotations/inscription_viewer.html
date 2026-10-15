@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YMS868 — Mothakkal Hero Stone Inscription</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ─── Reset & tokens ──────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:          #f5f0e8;
+  --panel-bg:    #ffffff;
+  --primary:     #1e2d3d;
+  --accent:      #b5451b;
+  --gold:        #c9a84c;
+  --teal:        #0f766e;
+  --text:        #1e293b;
+  --muted:       #64748b;
+  --border:      #dde3ea;
+  --popup-bg:    #1a2636;
+  --font:        'Outfit', system-ui, sans-serif;
+  --font-tamil:  'Noto Sans Tamil', sans-serif;
+  --font-mono:   'Fira Code', monospace;
+  --radius:      10px;
+  --shadow:      0 8px 32px rgba(0,0,0,.18);
+}
+
+html, body {
+  height: 100%;
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Page layout ─────────────────────────────────────────────────── */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background: var(--primary);
+  color: #fff;
+  padding: .9rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,.2);
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+header h1 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: -.015em;
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+}
+
+.badge {
+  font-size: .68rem;
+  font-weight: 500;
+  background: rgba(255,255,255,.14);
+  border: 1px solid rgba(255,255,255,.22);
+  padding: 2px 9px;
+  border-radius: 20px;
+  letter-spacing: .4px;
+}
+
+.header-meta {
+  font-size: .78rem;
+  color: rgba(255,255,255,.55);
+  display: flex;
+  gap: 1.4rem;
+}
+
+.header-meta span { white-space: nowrap; }
+.header-meta strong { color: rgba(255,255,255,.85); font-weight: 600; }
+
+/* ─── Two-column workspace ────────────────────────────────────────── */
+.workspace {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* ─── Left: stone image panel ────────────────────────────────────── */
+.stone-panel {
+  flex: 1.15;
+  display: flex;
+  flex-direction: column;
+  background: #e8e2d6;
+  border-right: 1px solid var(--border);
+  overflow: hidden;
+  position: relative;
+}
+
+.stone-panel-header {
+  padding: .6rem 1.1rem;
+  font-size: .72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  color: var(--muted);
+  background: rgba(255,255,255,.55);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  flex-shrink: 0;
+}
+
+.stone-panel-header .hint {
+  margin-left: auto;
+  font-size: .7rem;
+  font-weight: 400;
+  color: #94a3b8;
+  letter-spacing: .3px;
+  text-transform: none;
+}
+
+/* image wrapper — keeps aspect ratio, fills panel */
+.image-wrapper {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+}
+
+.image-wrapper img#stone-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+  border-radius: 4px;
+  box-shadow: 0 6px 28px rgba(0,0,0,.14);
+  /* IMPORTANT: image must be rendered before hotspots are placed */
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* hotspot overlay — exact same size/position as the rendered img */
+#hotspot-layer {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  /* clip everything to the stone image boundary */
+  overflow: hidden;
+  border-radius: 4px; /* matches img border-radius */
+}
+
+/* Each hotspot circle */
+.hs {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  cursor: crosshair;
+  pointer-events: all;
+}
+
+/* subtle ring on hover */
+.hs:hover {
+  background: rgba(201, 168, 76, .18);
+  outline: 1.5px solid rgba(201, 168, 76, .55);
+  outline-offset: 1px;
+}
+
+/* ─── Always-visible Tamil letter label on the stone ─────────────── */
+.hs-label {
+  position: absolute;
+  /* sit just below the hotspot centre */
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-tamil);
+  font-size: 11px;
+  font-weight: 700;
+  color: #e03030;          /* red like reference image */
+  line-height: 1;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  /* thin white halo so label is readable over dark stone */
+  text-shadow:
+    0 0 3px #fff,
+    0 0 3px #fff,
+    0 0 2px #fff;
+}
+
+/* on hover, brighten the label slightly */
+.hs:hover .hs-label {
+  color: #ff2020;
+  text-shadow: 0 0 4px #fff, 0 0 4px #fff;
+}
+
+/* ─── Active line highlight bar on image ─────────────────────────── */
+.line-bar {
+  position: absolute;
+  left: 0; right: 0;
+  border-radius: 3px;
+  background: rgba(201, 168, 76, .13);
+  border: 1px solid rgba(201, 168, 76, .4);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 150ms ease;
+  z-index: 1;
+}
+.line-bar.visible { opacity: 1; }
+
+/* ─── Floating popup ─────────────────────────────────────────────── */
+#popup {
+  position: fixed;
+  z-index: 9000;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 150ms ease;
+  min-width: 310px;
+  max-width: 380px;
+}
+#popup.visible { opacity: 1; }
+
+.popup-inner {
+  background: var(--popup-bg);
+  color: #e2e8f0;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow), 0 0 0 1px rgba(255,255,255,.07);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0;
+  height: auto;
+  min-height: 0;
+}
+
+/* all direct children: reset margin/padding, tight line-height */
+.popup-inner > * {
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+}
+
+.popup-header {
+  background: rgba(255,255,255,.06);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+}
+
+.popup-line-num {
+  font-size: .65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .7px;
+  color: var(--gold);
+  background: rgba(201,168,76,.14);
+  border: 1px solid rgba(201,168,76,.3);
+  padding: 1px 7px;
+  border-radius: 20px;
+  line-height: 1.25;
+}
+
+.popup-aksharas {
+  font-size: .67rem;
+  color: rgba(255,255,255,.35);
+  margin-left: auto;
+  font-weight: 500;
+  letter-spacing: .3px;
+  line-height: 1.25;
+}
+
+/* body is now just the inner wrapper — no extra padding needed */
+.popup-body {
+  padding: 7px 10px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+/* transliteration row */
+.popup-translit {
+  font-family: var(--font-mono);
+  font-size: .95rem;
+  color: #f1c40f;
+  letter-spacing: .5px;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Tamil text row */
+.popup-tamil {
+  font-family: var(--font-tamil);
+  font-size: 1rem;
+  color: #5eead4;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* English meaning */
+.popup-en {
+  font-size: .78rem;
+  color: rgba(255,255,255,.48);
+  font-style: italic;
+  line-height: 1.2;
+  margin: 0;
+  padding: 0;
+  border-top: none;
+}
+
+/* letter pills strip */
+.popup-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 4px;
+  padding-top: 4px;
+  border-top: 1px solid rgba(255,255,255,.07);
+  line-height: 1.25;
+}
+
+.popup-pill {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 5px;
+  padding: 3px 6px;
+  min-width: 30px;
+}
+
+.popup-pill .pl-en {
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  color: #cbd5e1;
+  line-height: 1;
+}
+
+.popup-pill .pl-ta {
+  font-family: var(--font-tamil);
+  font-size: .78rem;
+  color: #5eead4;
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* highlighted pill — the specific letter being hovered */
+.popup-pill.active {
+  background: rgba(201,168,76,.22);
+  border-color: rgba(201,168,76,.55);
+}
+.popup-pill.active .pl-en { color: #f1c40f; }
+.popup-pill.active .pl-ta { color: #fde68a; }
+
+/* ─── Right: transcription panel ─────────────────────────────────── */
+.side-panel {
+  width: 420px;
+  min-width: 360px;
+  max-width: 460px;
+  background: var(--panel-bg);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+
+.side-panel::-webkit-scrollbar { width: 5px; }
+.side-panel::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+
+.panel-title {
+  padding: 1rem 1.4rem .75rem;
+  font-size: .7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+  background: #fafbfc;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+.inscription-list {
+  padding: .9rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Line card */
+.line-card {
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  background: #fff;
+  overflow: hidden;
+  transition: border-color 200ms, box-shadow 200ms, transform 200ms;
+  cursor: default;
+}
+
+.line-card.highlighted {
+  border-color: var(--gold);
+  box-shadow: 0 4px 20px rgba(201,168,76,.2);
+  transform: translateX(3px);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .55rem .85rem;
+  background: #f8fafc;
+  border-bottom: 1px solid var(--border);
+}
+
+.card-line-num {
+  font-size: .72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  color: var(--accent);
+}
+
+.card-aksharas {
+  font-size: .65rem;
+  color: var(--muted);
+  background: #f1f5f9;
+  padding: 1px 6px;
+  border-radius: 4px;
+  margin-left: auto;
+}
+
+.card-body { padding: .75rem .85rem .85rem; }
+
+.card-translit {
+  font-family: var(--font-mono);
+  font-size: .93rem;
+  color: #334155;
+  margin-bottom: .55rem;
+  line-height: 1.5;
+}
+
+.card-tamil {
+  font-family: var(--font-tamil);
+  font-size: 1rem;
+  color: var(--teal);
+  font-weight: 600;
+  line-height: 1.6;
+  margin-bottom: .45rem;
+}
+
+.card-en {
+  font-size: .8rem;
+  color: var(--muted);
+  font-style: italic;
+  line-height: 1.5;
+  border-top: 1px dashed var(--border);
+  padding-top: .5rem;
+  margin-top: .5rem;
+}
+
+/* pills in card */
+.card-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: .7rem;
+  padding-top: .65rem;
+  border-top: 1px dashed var(--border);
+}
+
+.word-sep {
+  color: #94a3b8;
+  font-weight: 700;
+  font-size: .85rem;
+  align-self: center;
+  margin: 0 1px;
+}
+
+.cpill {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 4px 7px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 130ms, border-color 130ms, transform 130ms;
+  min-width: 30px;
+}
+
+.cpill:hover, .cpill.active {
+  background: #fef9c3;
+  border-color: #f59e0b;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(245,158,11,.2);
+}
+
+.cpill .pe { font-family: var(--font-mono); font-size: .68rem; color: #475569; line-height: 1; }
+.cpill .pt { font-family: var(--font-tamil); font-size: .78rem; color: var(--teal); font-weight: 600; line-height: 1; }
+.cpill.active .pe { color: #92400e; }
+.cpill.active .pt { color: #92400e; }
+
+/* history card */
+.history-card {
+  margin: 0 1.1rem 1.25rem;
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.1rem;
+  font-size: .82rem;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.history-card h4 {
+  font-size: .85rem;
+  color: var(--primary);
+  margin-bottom: .5rem;
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .workspace { flex-direction: column; overflow: auto; }
+  .stone-panel { min-height: 55vw; max-height: 70vw; border-right: none; border-bottom: 1px solid var(--border); }
+  .side-panel { width: 100%; max-width: 100%; min-width: 0; overflow-y: visible; }
+  .header-meta { display: none; }
+}
+
+@media (max-width: 560px) {
+  header h1 { font-size: 1rem; }
+  .badge { display: none; }
+  #popup { min-width: 260px; max-width: 94vw; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>
+    <span>YMS868 — Mothakkal Nadukal</span>
+    <span class="badge">7th Century CE</span>
+  </h1>
+  <div class="header-meta">
+    <span><strong>ID:</strong> YMS868</span>
+    <span><strong>Year:</strong> 622 CE</span>
+    <span><strong>Script:</strong> Vatteluttu</span>
+    <span><strong>Size:</strong> 113 × 75 cm</span>
+  </div>
+</header>
+
+<div class="workspace">
+
+  <!-- ── Left: stone image ── -->
+  <div class="stone-panel">
+    <div class="stone-panel-header">
+      <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <circle cx="8" cy="8" r="7" stroke="#94a3b8" stroke-width="1.5"/>
+        <path d="M8 4v4l3 2" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      Stone Tracing — Inscription Zone
+      <span class="hint">Hover any letter to read its line</span>
+    </div>
+
+    <div class="image-wrapper" id="img-wrapper">
+      <img id="stone-img"
+           src="assets/files/tracing.jpeg"
+           alt="Tracing of the Mothakkal hero stone inscription YMS868">
+
+      <!-- hotspot layer is injected by JS after image loads -->
+      <div id="hotspot-layer" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <!-- ── Right: transcription ── -->
+  <div class="side-panel">
+    <div class="panel-title">Transcription &amp; Translation</div>
+
+    <div class="inscription-list" id="inscription-list">
+      <!-- cards injected by JS -->
+    </div>
+
+    <div class="history-card">
+      <h4>📜 Epigraphical Context</h4>
+      <p>
+        This memorial hero stone (<em>Naṭukal</em>) was discovered in
+        <strong>Mothakkal</strong> (Chengam taluk, Tamil Nadu). It commemorates the
+        hero <strong>Vinralai Vadukan</strong> who died defending his community
+        against a predatory tiger. Inscribed in early Tamil
+        <strong>Vatteluttu</strong> script, it dates to the 32nd regnal year of
+        Pallava King <strong>Mahendravarman I</strong> (622 CE).
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ── Cursor-following popup ── -->
+<div id="popup" role="tooltip" aria-live="polite">
+  <div class="popup-inner">
+    <div class="popup-header">
+      <span class="popup-line-num" id="p-linenum"></span>
+      <span class="popup-aksharas" id="p-aksharas"></span>
+    </div>
+    <div class="popup-body">
+      <div class="popup-translit"  id="p-translit"></div>
+      <div class="popup-tamil"     id="p-tamil"></div>
+      <div class="popup-en"        id="p-en"></div>
+      <div class="popup-pills"     id="p-pills"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ─────────────────────────────────────────────────────────────────────────────
+// DATA — 6 inscription lines
+// Letters per line are stored as { en, ta } pairs; a null entry = word separator.
+// Hotspot positions are % (left, top) relative to the RENDERED image rectangle.
+// Coordinates were derived by carefully mapping each glyph position in the
+// tracing image (image dimensions ~900×1240px):
+//   Inscription zone: horizontal ~28–82%, vertical L1≈30%, L2≈36%, L3≈42%,
+//                     L4≈47%, L5≈52.5%, L6≈58%
+// ─────────────────────────────────────────────────────────────────────────────
+const LINES = [
+  {
+    no: 1,
+    aksharas: 9,
+    translit: "kōvicaiya mayēntira",
+    tamil:    "கோவிசைய மயேந்திர",
+    en:       "In the victorious reign of King Mahendra…",
+    // 9 letters across ~31–80%, centreY ≈ 31.5%
+    letters: [
+      { en:"ko",  ta:"கோ",  x:31.0, y:31.5 },
+      { en:"vi",  ta:"வி",  x:36.5, y:31.5 },
+      { en:"cai", ta:"சை",  x:42.0, y:31.5 },
+      { en:"ya",  ta:"ய",   x:47.5, y:31.5 },
+      null, // word break
+      { en:"ma",  ta:"ம",   x:53.5, y:31.5 },
+      { en:"yē",  ta:"யே",  x:59.0, y:31.5 },
+      { en:"n",   ta:"ந்",  x:64.0, y:31.5 },
+      { en:"thi", ta:"தி",  x:69.5, y:31.5 },
+      { en:"ra",  ta:"ரா",  x:75.0, y:31.5 }
+    ]
+  },
+  {
+    no: 2,
+    aksharas: 13,
+    translit: "parumarku muppattirantā",
+    tamil:    "பருமற்கு முப்பத்திரண்டா",
+    en:       "…varman, in the thirty-second year…",
+    // 13 letters, denser spacing
+    letters: [
+      { en:"pa",  ta:"ப",   x:29.5, y:37.0 },
+      { en:"ru",  ta:"ரு",  x:34.0, y:37.0 },
+      { en:"ma",  ta:"ம",   x:38.5, y:37.0 },
+      { en:"r",   ta:"ற்",  x:43.0, y:37.0 },
+      { en:"ku",  ta:"கு",  x:47.5, y:37.0 },
+      null,
+      { en:"mu",  ta:"மு",  x:52.5, y:37.0 },
+      { en:"p",   ta:"ப்",  x:56.5, y:37.0 },
+      { en:"pa",  ta:"ப",   x:60.5, y:37.0 },
+      { en:"th",  ta:"த்",  x:64.5, y:37.0 },
+      { en:"thi", ta:"தி",  x:68.5, y:37.0 },
+      { en:"ra",  ta:"ர",   x:72.5, y:37.0 },
+      { en:"n",   ta:"ண்",  x:76.5, y:37.0 },
+      { en:"dā",  ta:"டா",  x:80.5, y:37.0 }
+    ]
+  },
+  {
+    no: 3,
+    aksharas: 9,
+    translit: "vatu ponmōtanar cē",
+    tamil:    "வது பொன்மோதனார் சே",
+    en:       "…year; the loyal servant of Ponmodanar…",
+    letters: [
+      { en:"va",  ta:"வ",   x:31.0, y:42.5 },
+      { en:"thu", ta:"து",  x:37.0, y:42.5 },
+      null,
+      { en:"po",  ta:"பொ",  x:43.0, y:42.5 },
+      { en:"n",   ta:"ன்",  x:48.5, y:42.5 },
+      { en:"mō",  ta:"மோ",  x:54.0, y:42.5 },
+      { en:"da",  ta:"ட",   x:59.5, y:42.5 },
+      { en:"nā",  ta:"னா",  x:65.0, y:42.5 },
+      { en:"r",   ta:"ர்",  x:70.5, y:42.5 },
+      null,
+      { en:"cē",  ta:"சே",  x:76.0, y:42.5 }
+    ]
+  },
+  {
+    no: 4,
+    aksharas: 12,
+    translit: "vakan vinralai vatukan",
+    tamil:    "வகன் வின்றலை வடுகன்",
+    en:       "…named Vinralai Vadukan…",
+    letters: [
+      { en:"va",  ta:"வ",   x:29.5, y:47.8 },
+      { en:"k",   ta:"க்",  x:34.5, y:47.8 },
+      { en:"ka",  ta:"க",   x:39.5, y:47.8 },
+      { en:"n",   ta:"ன்",  x:44.5, y:47.8 },
+      null,
+      { en:"vi",  ta:"வி",  x:50.0, y:47.8 },
+      { en:"n",   ta:"ன்",  x:54.5, y:47.8 },
+      { en:"ra",  ta:"ற",   x:59.0, y:47.8 },
+      { en:"lai", ta:"லை",  x:63.5, y:47.8 },
+      null,
+      { en:"va",  ta:"வ",   x:68.5, y:47.8 },
+      { en:"du",  ta:"டு",  x:73.0, y:47.8 },
+      { en:"ka",  ta:"க",   x:77.5, y:47.8 },
+      { en:"n",   ta:"ன்",  x:81.5, y:47.8 }
+    ]
+  },
+  {
+    no: 5,
+    aksharas: 10,
+    translit: "puli kuttip pattān",
+    tamil:    "புலி குத்திப் பட்டான்",
+    en:       "…who struck the tiger and fell in battle…",
+    letters: [
+      { en:"pu",  ta:"பு",  x:29.5, y:53.2 },
+      { en:"li",  ta:"லி",  x:35.5, y:53.2 },
+      null,
+      { en:"ku",  ta:"கு",  x:41.5, y:53.2 },
+      { en:"th",  ta:"த்",  x:47.0, y:53.2 },
+      { en:"thu", ta:"து",  x:52.5, y:53.2 },
+      { en:"p",   ta:"ப்",  x:57.5, y:53.2 },
+      null,
+      { en:"pa",  ta:"ப",   x:63.0, y:53.2 },
+      { en:"t",   ta:"ட்",  x:68.0, y:53.2 },
+      { en:"tā",  ta:"டா",  x:73.0, y:53.2 },
+      { en:"n",   ta:"ன்",  x:78.0, y:53.2 }
+    ]
+  },
+  {
+    no: 6,
+    aksharas: 2,
+    translit: "kal",
+    tamil:    "கல்",
+    en:       "…this is his memorial stone.",
+    letters: [
+      { en:"ka",  ta:"க",   x:46.0, y:58.5 },
+      { en:"l",   ta:"ல்",  x:52.5, y:58.5 }
+    ]
+  }
+];
+
+// ─── Build side-panel cards ──────────────────────────────────────────────────
+const list = document.getElementById('inscription-list');
+
+LINES.forEach(line => {
+  const card = document.createElement('div');
+  card.className = 'line-card';
+  card.dataset.lineNo = line.no;
+
+  // pill HTML — skip nulls (word separators shown as "|")
+  const pillsHtml = line.letters.map((l, idx) => {
+    if (l === null) return `<span class="word-sep">|</span>`;
+    return `<div class="cpill" data-line="${line.no}" data-idx="${idx}">
+              <span class="pe">${l.en}</span>
+              <span class="pt">${l.ta}</span>
+            </div>`;
+  }).join('');
+
+  card.innerHTML = `
+    <div class="card-header">
+      <span class="card-line-num">Line ${line.no}</span>
+      <span class="card-aksharas">${line.aksharas} aksharas</span>
+    </div>
+    <div class="card-body">
+      <div class="card-translit">${line.translit}</div>
+      <div class="card-tamil">${line.tamil}</div>
+      <div class="card-en">${line.en}</div>
+      <div class="card-pills">${pillsHtml}</div>
+    </div>`;
+
+  list.appendChild(card);
+});
+
+// ─── Build hotspot layer ─────────────────────────────────────────────────────
+// Hotspot coordinates are percentages of the image's *rendered* bounding rect.
+// We create one .hs div per real letter (skip nulls), positioned absolutely
+// inside #hotspot-layer which is sized/positioned to match the <img> exactly.
+
+const img       = document.getElementById('stone-img');
+const layer     = document.getElementById('hotspot-layer');
+const wrapper   = document.getElementById('img-wrapper');
+
+function buildHotspots() {
+  layer.innerHTML = ''; // clear on rebuild
+
+  const imgRect     = img.getBoundingClientRect();
+  const wrapperRect = wrapper.getBoundingClientRect();
+
+  // offset of image inside wrapper (because of padding / object-fit centering)
+  const offX = imgRect.left - wrapperRect.left;
+  const offY = imgRect.top  - wrapperRect.top;
+  const W    = imgRect.width;
+  const H    = imgRect.height;
+
+  // position the layer exactly over the image
+  layer.style.left         = offX + 'px';
+  layer.style.top          = offY + 'px';
+  layer.style.width        = W    + 'px';
+  layer.style.height       = H    + 'px';
+  layer.style.borderRadius = '4px';   // clip to stone image corners
+  layer.style.overflow     = 'hidden';
+
+  LINES.forEach(line => {
+    line.letters.forEach((letter, idx) => {
+      if (letter === null) return; // word separator — no hotspot
+
+      const hs = document.createElement('div');
+      hs.className      = 'hs';
+      hs.dataset.lineNo = line.no;
+      hs.dataset.idx    = idx;
+      // percent → px
+      hs.style.left = (letter.x / 100) * W + 'px';
+      hs.style.top  = (letter.y / 100) * H + 'px';
+
+      // Always-visible Tamil label
+      const lbl = document.createElement('span');
+      lbl.className   = 'hs-label';
+      lbl.textContent = letter.ta;
+      hs.appendChild(lbl);
+
+      layer.appendChild(hs);
+    });
+  });
+}
+
+// rebuild whenever image loads or window resizes
+if (img.complete && img.naturalWidth) {
+  buildHotspots();
+} else {
+  img.addEventListener('load', buildHotspots);
+}
+window.addEventListener('resize', buildHotspots);
+
+// ─── Popup logic ─────────────────────────────────────────────────────────────
+const popup      = document.getElementById('popup');
+const pLinenum   = document.getElementById('p-linenum');
+const pAksharas  = document.getElementById('p-aksharas');
+const pTranslit  = document.getElementById('p-translit');
+const pTamil     = document.getElementById('p-tamil');
+const pEn        = document.getElementById('p-en');
+const pPills     = document.getElementById('p-pills');
+
+let activeLineNo = null;
+let hideTimer    = null;
+
+function showPopup(lineNo, letterIdx, cursorX, cursorY) {
+  clearTimeout(hideTimer);
+
+  const line = LINES[lineNo - 1];
+
+  // fill popup content only on line change
+  if (activeLineNo !== lineNo) {
+    activeLineNo = lineNo;
+
+    pLinenum.textContent  = `Line ${line.no}`;
+    pAksharas.textContent = `${line.aksharas} aksharas`;
+    pTranslit.textContent = line.translit;
+    pTamil.textContent    = line.tamil;
+    pEn.textContent       = line.en;
+
+    // rebuild pills
+    pPills.innerHTML = line.letters.map((l, i) => {
+      if (l === null) return `<span style="color:#4b5563;font-size:.8rem;align-self:center">|</span>`;
+      return `<div class="popup-pill" data-idx="${i}">
+                <span class="pl-en">${l.en}</span>
+                <span class="pl-ta">${l.ta}</span>
+              </div>`;
+    }).join('');
+
+    // sync highlight in side panel
+    highlightCard(lineNo);
+  }
+
+  // highlight active pill
+  pPills.querySelectorAll('.popup-pill').forEach(p => {
+    p.classList.toggle('active', parseInt(p.dataset.idx) === letterIdx);
+  });
+
+  // highlight active cpill in card
+  document.querySelectorAll('.cpill').forEach(p => {
+    p.classList.toggle('active',
+      parseInt(p.dataset.line) === lineNo &&
+      parseInt(p.dataset.idx)  === letterIdx);
+  });
+
+  positionPopup(cursorX, cursorY);
+  popup.classList.add('visible');
+}
+
+function positionPopup(cx, cy) {
+  const pw = popup.offsetWidth  || 320;
+  const ph = popup.offsetHeight || 180;
+  const vw = window.innerWidth;
+  const vh = window.innerHeight;
+  const GAP = 14;
+
+  let x = cx + GAP;
+  let y = cy + GAP;
+
+  // flip left if overflows right edge
+  if (x + pw > vw - 8) x = cx - pw - GAP;
+  // flip up if overflows bottom edge
+  if (y + ph > vh - 8) y = cy - ph - GAP;
+
+  // clamp to viewport
+  x = Math.max(8, x);
+  y = Math.max(8, y);
+
+  popup.style.left = x + 'px';
+  popup.style.top  = y + 'px';
+}
+
+function hidePopup() {
+  hideTimer = setTimeout(() => {
+    popup.classList.remove('visible');
+    activeLineNo = null;
+    document.querySelectorAll('.cpill.active').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.line-card.highlighted').forEach(c => c.classList.remove('highlighted'));
+  }, 150);
+}
+
+function highlightCard(lineNo) {
+  document.querySelectorAll('.line-card').forEach(c => {
+    const active = parseInt(c.dataset.lineNo) === lineNo;
+    c.classList.toggle('highlighted', active);
+    if (active) {
+      // scroll into view smoothly
+      c.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  });
+}
+
+// ─── Hotspot events (delegated on the layer) ─────────────────────────────────
+layer.addEventListener('mousemove', e => {
+  const hs = e.target.closest('.hs');
+  if (!hs) return;
+  showPopup(
+    parseInt(hs.dataset.lineNo),
+    parseInt(hs.dataset.idx),
+    e.clientX, e.clientY
+  );
+});
+
+layer.addEventListener('mouseleave', hidePopup);
+layer.addEventListener('mouseout', e => {
+  if (!e.relatedTarget || !e.relatedTarget.closest('#hotspot-layer')) hidePopup();
+});
+
+// keep popup alive when cursor moves to popup itself
+popup.addEventListener('mouseenter', () => clearTimeout(hideTimer));
+popup.addEventListener('mouseleave', hidePopup);
+
+// also update popup position as cursor moves over the layer (smooth follow)
+document.addEventListener('mousemove', e => {
+  if (popup.classList.contains('visible')) {
+    positionPopup(e.clientX, e.clientY);
+  }
+});
+
+// ─── Card pill interactions ──────────────────────────────────────────────────
+// Clicking a pill on the card highlights it and shows the popup near cursor
+document.addEventListener('click', e => {
+  const cpill = e.target.closest('.cpill');
+  if (!cpill) return;
+  const lineNo = parseInt(cpill.dataset.line);
+  const idx    = parseInt(cpill.dataset.idx);
+  showPopup(lineNo, idx, e.clientX, e.clientY);
+});
+
+// ─── Touch support ───────────────────────────────────────────────────────────
+layer.addEventListener('touchstart', e => {
+  const t = e.changedTouches[0];
+  const el = document.elementFromPoint(t.clientX, t.clientY);
+  const hs = el && el.closest('.hs');
+  if (hs) {
+    e.preventDefault();
+    showPopup(parseInt(hs.dataset.lineNo), parseInt(hs.dataset.idx), t.clientX, t.clientY);
+  }
+}, { passive: false });
+
+layer.addEventListener('touchend', () => {
+  setTimeout(hidePopup, 2500); // auto-dismiss on touch after 2.5s
+});
+
+// ─── Debug mode: press D to toggle visible hotspot circles ───────────────────
+document.addEventListener('keydown', e => {
+  if (e.key !== 'd' && e.key !== 'D') return;
+  document.querySelectorAll('.hs').forEach(hs => {
+    hs.style.background = hs.style.background
+      ? '' : 'rgba(255,0,0,.3)';
+    hs.style.border     = hs.style.border
+      ? '' : '1.5px solid red';
+  });
+});
+</script>
+</body>
+</html>

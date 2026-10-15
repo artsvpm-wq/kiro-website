@@ -1,0 +1,1159 @@
+{
+  "id": 1,
+  "accession_no": "DEMO-001",
+  "title": "Test Artifact (Sample Stone)",
+  "description": "Hero stone (Nadukal) commemorating warrior Vinralai Vadukan who fought and killed a tiger, dated to the 32nd regnal year of Pallava King Mahendravarman I (622 CE) found in Mothakkal.",
+  "period_label": "622 BC",
+  "date_text": "7th Century CE (622 CE)",
+  "dating_notes": "32nd Regnal year of Mahendravarman I",
+  "discovery_location": "Digital Lab",
+  "current_location": "Museum",
+  "height_cm": 113.0,
+  "width_cm": 75.0,
+  "material": "Stone",
+  "status": "published",
+  "model_asset": {
+    "id": 1,
+    "file_path": "assets/files/model.glb",
+    "diffuse_path": "assets/files/tex_u0_v0_diffuse.jpg",
+    "normal_path": "assets/files/tex_u0_v0_normal.jpg"
+  },
+  "tracing_asset": {
+    "file_path": "assets/files/WhatsApp Image 2026-10-10 at 22.41.05.jpeg"
+  },
+  "inscriptions": [
+    {
+      "id": 1,
+      "label": "Main Face Inscription",
+      "script_name": "Tamil-Brahmi / Vatteluttu",
+      "language_code": "ta",
+      "lines": [
+        {
+          "id": 4,
+          "line_no": 1,
+          "original_text": "kōvicaiya mayēntira",
+          "transliteration": "kō-vicaiya mayēntira",
+          "translations": [
+            {
+              "language_code": "TA",
+              "translated_text": "கோவிசைய மயேந்திர"
+            },
+            {
+              "language_code": "EN",
+              "translated_text": "In the victorious reign of King Mahendra..."
+            }
+          ],
+          "annotation": {
+            "id": 6,
+            "line_id": 4,
+            "annotation_method": "3d",
+            "surface_geometry": {
+              "rings": [
+                [
+                  [
+                    112.88717608739812,
+                    -137.1172629067695,
+                    114.8094413734674
+                  ],
+                  [
+                    112.87969587474582,
+                    -137.16237964014022,
+                    114.80755732965264
+                  ],
+                  [
+                    113.2960932880017,
+                    -137.18227152514513,
+                    114.81980311721128
+                  ],
+                  [
+                    113.28994593807857,
+                    -137.14451903781668,
+                    114.81889622499372
+                  ]
+                ]
+              ]
+            }
+          },
+          "letters": [
+            {
+              "pin_idx": 0,
+              "word_idx": 1,
+              "tamil": "கோ",
+              "english": "ko",
+              "word_ta": "கோவிசைய",
+              "word_en": "kovicaaya",
+              "position": [
+                112.95319337706366,
+                -137.15592629511306,
+                114.81347674628596
+              ],
+              "line_no": 1
+            },
+            {
+              "pin_idx": 1,
+              "word_idx": 1,
+              "tamil": "வி",
+              "english": "vi",
+              "word_ta": "கோவிசைய",
+              "word_en": "kovicaaya",
+              "position": [
+                113.00110073693725,
+                -137.1590821520706,
+                114.81476132474317
+              ],
+              "line_no": 1
+            },
+            {
+              "pin_idx": 2,
+              "word_idx": 1,
+              "tamil": "சை",
+              "english": "cai",
+              "word_ta": "கோவிசைய",
+              "word_en": "kovicaaya",
+              "position": [
+                113.04508990875533,
+                -137.15443103384584,
+                114.81377674115664
+              ],
+              "line_no": 1
+            },
+            {
+              "pin_idx": 3,
+              "word_idx": 1,
+              "tamil": "ய",
+              "english": "ya",
+              "word_ta": "கோவிசைய",
+              "word_en": "kovicaaya",
+              "position": [
+                113.08436059127971,
+                -137.15447688580738,
+                114.81315599020273
+              ],
+              "line_no": 1
+            },
+            {
+              "pin_idx": 4,
+              "word_idx": 2,
+              "tamil": "ம",
+              "english": "ma",
+              "word_ta": "மயேந்திரா",
+              "word_en": "mayentira",
+              "position": [
+                113.13459168479213,
+                -137.15921077142676,
+                114.81369807716486
+              ],
+              "line_no": 1
+            },
+            {
+              "pin_idx": 5,
+              "word_idx": 2,
+              "tamil": "யே",
+              "english": "ye",
+              "word_ta": "மயேந்திரா",
+              "word_en": "mayentira",
+              "position": [
+                113.17371158520547,
+                -137.16068542777225,
+                114.81843749585362
+              ],
+              "line_no": 1
+            },
+            {
+              "pin_idx": 6,
+              "word_idx": 2,
+              "tamil": "ந்",
+              "english": "n",
+              "word_ta": "மயேந்திரா",
+              "word_en": "mayentira",
+              "position": [
+                113.22397035454108,
+                -137.15602420332206,
+                114.8180150005533
+              ],
+              "line_no": 1
+            },
+            {
+              "pin_idx": 7,
+              "word_idx": 2,
+              "tamil": "தி",
+              "english": "thi",
+              "word_ta": "மயேந்திரா",
+              "word_en": "mayentira",
+              "position": [
+                113.26638559711939,
+                -137.156072210039,
+                114.81740356361227
+              ],
+              "line_no": 1
+            },
+            {
+              "pin_idx": 8,
+              "word_idx": 2,
+              "tamil": "ரா",
+              "english": "ra",
+              "word_ta": "மயேந்திரா",
+              "word_en": "mayentira",
+              "position": [
+                113.30242195328927,
+                -137.16230923079203,
+                114.82008205017009
+              ],
+              "line_no": 1
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "line_no": 2,
+          "original_text": "parumarku muppattirantā",
+          "transliteration": "parumaṟku muppattiraṇṭā",
+          "translations": [
+            {
+              "language_code": "TA",
+              "translated_text": "பருமற்கு முப்பத்திரண்டா"
+            },
+            {
+              "language_code": "EN",
+              "translated_text": "...varman, in the thirty-second..."
+            }
+          ],
+          "annotation": {
+            "id": 7,
+            "line_id": 5,
+            "annotation_method": "3d",
+            "surface_geometry": {
+              "rings": [
+                [
+                  [
+                    112.87737251664481,
+                    -137.18056363786656,
+                    114.80775316959492
+                  ],
+                  [
+                    113.27966067005369,
+                    -137.19095443675513,
+                    114.82015691759358
+                  ],
+                  [
+                    113.28034471303064,
+                    -137.22864679819122,
+                    114.82110456400756
+                  ],
+                  [
+                    112.872672849648,
+                    -137.2215815309349,
+                    114.80788933237699
+                  ]
+                ]
+              ]
+            }
+          },
+          "letters": [
+            {
+              "pin_idx": 9,
+              "word_idx": 1,
+              "tamil": "ப",
+              "english": "pa",
+              "word_ta": "பருமற்கு",
+              "word_en": "parumarku",
+              "position": [
+                112.91971080227216,
+                -137.20777729633414,
+                114.81102554813712
+              ],
+              "line_no": 2
+            },
+            {
+              "pin_idx": 10,
+              "word_idx": 1,
+              "tamil": "ரு",
+              "english": "ru",
+              "word_ta": "பருமற்கு",
+              "word_en": "parumarku",
+              "position": [
+                112.94455046432375,
+                -137.20456243216762,
+                114.81536886079509
+              ],
+              "line_no": 2
+            },
+            {
+              "pin_idx": 11,
+              "word_idx": 1,
+              "tamil": "ம",
+              "english": "ma",
+              "word_ta": "பருமற்கு",
+              "word_en": "parumarku",
+              "position": [
+                112.99634536443355,
+                -137.19830483468334,
+                114.81600860747615
+              ],
+              "line_no": 2
+            },
+            {
+              "pin_idx": 12,
+              "word_idx": 1,
+              "tamil": "ற்",
+              "english": "r",
+              "word_ta": "பருமற்கு",
+              "word_en": "parumarku",
+              "position": [
+                113.0293573619827,
+                -137.19837008431648,
+                114.81452071053711
+              ],
+              "line_no": 2
+            },
+            {
+              "pin_idx": 13,
+              "word_idx": 1,
+              "tamil": "கு",
+              "english": "ku",
+              "word_ta": "பருமற்கு",
+              "word_en": "parumarku",
+              "position": [
+                113.07173398211819,
+                -137.20152601748794,
+                114.81514754528506
+              ],
+              "line_no": 2
+            },
+            {
+              "pin_idx": 14,
+              "word_idx": 2,
+              "tamil": "மு",
+              "english": "mu",
+              "word_ta": "முப்பத்திரண்டா",
+              "word_en": "muppattirantā",
+              "position": [
+                113.10625091210991,
+                -137.20309676567533,
+                114.81611138826771
+              ],
+              "line_no": 2
+            },
+            {
+              "pin_idx": 15,
+              "word_idx": 2,
+              "tamil": "ப்",
+              "english": "p",
+              "word_ta": "முப்பத்திரண்டா",
+              "word_en": "muppattirantā",
+              "position": [
+                113.15174147661239,
+                -137.20151890237017,
+                114.81770069366637
+              ],
+              "line_no": 2
+            },
+            {
+              "pin_idx": 16,
+              "word_idx": 2,
+              "tamil": "ப",
+              "english": "pa",
+              "word_ta": "முப்பத்திரண்டா",
+              "word_en": "muppattirantā",
+              "position": [
+                113.1783708020659,
+                -137.2046197501726,
+                114.81992607741832
+              ],
+              "line_no": 2
+            },
+            {
+              "pin_idx": 17,
+              "word_idx": 2,
+              "tamil": "த்",
+              "english": "th",
+              "word_ta": "முப்பத்திரண்டா",
+              "word_en": "muppattirantā",
+              "position": [
+                113.2176421658663,
+                -137.20466468812296,
+                114.81937906719592
+              ],
+              "line_no": 2
+            },
+            {
+              "pin_idx": 18,
+              "word_idx": 2,
+              "tamil": "தி",
+              "english": "thi",
+              "word_ta": "முப்பத்திரண்டா",
+              "word_en": "muppattirantā",
+              "position": [
+                113.23705152495299,
+                -137.20625513903926,
+                114.8202214543251
+              ],
+              "line_no": 2
+            },
+            {
+              "pin_idx": 19,
+              "word_idx": 2,
+              "tamil": "ர",
+              "english": "ra",
+              "word_ta": "முப்பத்திரண்டா",
+              "word_en": "muppattirantā",
+              "position": [
+                113.26340430983791,
+                -137.21284289985536,
+                114.81936112650787
+              ],
+              "line_no": 2
+            },
+            {
+              "pin_idx": 20,
+              "word_idx": 2,
+              "tamil": "ண்",
+              "english": "n",
+              "word_ta": "முப்பத்திரண்டா",
+              "word_en": "muppattirantā",
+              "position": [
+                113.28143275472024,
+                -137.19896593188784,
+                114.82049603120116
+              ],
+              "line_no": 2
+            },
+            {
+              "pin_idx": 21,
+              "word_idx": 2,
+              "tamil": "டா",
+              "english": "da",
+              "word_ta": "முப்பத்திரண்டா",
+              "word_en": "muppattirantā",
+              "position": [
+                113.30767950099565,
+                -137.20359019729477,
+                114.81909616694638
+              ],
+              "line_no": 2
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "line_no": 3,
+          "original_text": "vatu ponmōtanar cē",
+          "transliteration": "vatu poṉmōtaṉar cē",
+          "translations": [
+            {
+              "language_code": "TA",
+              "translated_text": "வது பொன்மோதனார் சே"
+            },
+            {
+              "language_code": "EN",
+              "translated_text": "...year; the servant of Ponmodanar,..."
+            }
+          ],
+          "annotation": {
+            "id": 8,
+            "line_id": 6,
+            "annotation_method": "3d",
+            "surface_geometry": {
+              "rings": [
+                [
+                  [
+                    112.87681463529523,
+                    -137.22810847324868,
+                    114.80883632203984
+                  ],
+                  [
+                    113.0404237412002,
+                    -137.23913085083663,
+                    114.81575384868256
+                  ],
+                  [
+                    113.18441057917421,
+                    -137.23639259723478,
+                    114.82086883840992
+                  ],
+                  [
+                    113.2874093906705,
+                    -137.23791164945834,
+                    114.82068877237654
+                  ],
+                  [
+                    113.28265895898232,
+                    -137.2731574168861,
+                    114.82135298966847
+                  ],
+                  [
+                    113.0483363759573,
+                    -137.26283832609673,
+                    114.81675411404555
+                  ],
+                  [
+                    112.93309337004258,
+                    -137.26025292434394,
+                    114.81562775231268
+                  ],
+                  [
+                    112.87691354296997,
+                    -137.2573451697181,
+                    114.80930152540478
+                  ]
+                ]
+              ]
+            }
+          },
+          "letters": [
+            {
+              "pin_idx": 22,
+              "word_idx": 1,
+              "tamil": "வ",
+              "english": "va",
+              "word_ta": "வது",
+              "word_en": "vatu",
+              "position": [
+                112.91363424574457,
+                -137.2562820434012,
+                114.81306464324798
+              ],
+              "line_no": 3
+            },
+            {
+              "pin_idx": 23,
+              "word_idx": 1,
+              "tamil": "து",
+              "english": "thu",
+              "word_ta": "வது",
+              "word_en": "vatu",
+              "position": [
+                112.93233999889716,
+                -137.2499930534217,
+                114.81562359396342
+              ],
+              "line_no": 3
+            },
+            {
+              "pin_idx": 24,
+              "word_idx": 2,
+              "tamil": "பொ",
+              "english": "po",
+              "word_ta": "பொன்மோடனார்",
+              "word_en": "ponmōtanar",
+              "position": [
+                112.97788187964335,
+                -137.25164516097988,
+                114.81684910833847
+              ],
+              "line_no": 3
+            },
+            {
+              "pin_idx": 25,
+              "word_idx": 2,
+              "tamil": "ன்",
+              "english": "n",
+              "word_ta": "பொன்மோடனார்",
+              "word_en": "ponmōtanar",
+              "position": [
+                113.02040402249605,
+                -137.25491720754022,
+                114.81643326113591
+              ],
+              "line_no": 3
+            },
+            {
+              "pin_idx": 26,
+              "word_idx": 2,
+              "tamil": "மோ",
+              "english": "mo",
+              "word_ta": "பொன்மோடனார்",
+              "word_en": "ponmōtanar",
+              "position": [
+                113.06127543896972,
+                -137.25500721716995,
+                114.81707085947569
+              ],
+              "line_no": 3
+            },
+            {
+              "pin_idx": 27,
+              "word_idx": 2,
+              "tamil": "ட",
+              "english": "da",
+              "word_ta": "பொன்மோடனார்",
+              "word_en": "ponmōtanar",
+              "position": [
+                113.10371486973281,
+                -137.25509763956762,
+                114.81781899815839
+              ],
+              "line_no": 3
+            },
+            {
+              "pin_idx": 28,
+              "word_idx": 2,
+              "tamil": "னா",
+              "english": "naa",
+              "word_ta": "பொன்மோடனார்",
+              "word_en": "ponmōtanar",
+              "position": [
+                113.13820329662221,
+                -137.25512845122395,
+                114.8196350367407
+              ],
+              "line_no": 3
+            },
+            {
+              "pin_idx": 29,
+              "word_idx": 2,
+              "tamil": "ர்",
+              "english": "r",
+              "word_ta": "பொன்மோடனார்",
+              "word_en": "ponmōtanar",
+              "position": [
+                113.21858306414343,
+                -137.25518990079908,
+                114.82119879361572
+              ],
+              "line_no": 3
+            },
+            {
+              "pin_idx": 30,
+              "word_idx": 3,
+              "tamil": "சே",
+              "english": "se",
+              "word_ta": "சே",
+              "word_en": "cē",
+              "position": [
+                113.28636505403109,
+                -137.2553363694062,
+                114.82171202063684
+              ],
+              "line_no": 3
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "line_no": 4,
+          "original_text": "vakan vinralai vatukan",
+          "transliteration": "vakaṉ viṉṟalai vaṭukaṉ",
+          "translations": [
+            {
+              "language_code": "TA",
+              "translated_text": "வகன் வின்றலை வடுகன்"
+            },
+            {
+              "language_code": "EN",
+              "translated_text": "...named Vinralai Vadukan,..."
+            }
+          ],
+          "annotation": {
+            "id": 9,
+            "line_id": 7,
+            "annotation_method": "3d",
+            "surface_geometry": {
+              "rings": [
+                [
+                  [
+                    112.87555061478055,
+                    -137.27171412207016,
+                    114.81029070492764
+                  ],
+                  [
+                    112.96538896443921,
+                    -137.28399051387152,
+                    114.81685839015083
+                  ],
+                  [
+                    113.07347527092999,
+                    -137.28270587936544,
+                    114.8183074845808
+                  ],
+                  [
+                    113.17971642068183,
+                    -137.28487342173122,
+                    114.82144728409233
+                  ],
+                  [
+                    113.2724334353431,
+                    -137.2897067977913,
+                    114.82226632323975
+                  ],
+                  [
+                    113.27481166612979,
+                    -137.32003127433086,
+                    114.8218528284273
+                  ],
+                  [
+                    113.17189296182127,
+                    -137.31787784886018,
+                    114.82296395974734
+                  ],
+                  [
+                    113.0594169834817,
+                    -137.31244133522557,
+                    114.81848393484921
+                  ],
+                  [
+                    112.96304978144495,
+                    -137.3051312637093,
+                    114.81691722252665
+                  ],
+                  [
+                    112.87125706446813,
+                    -137.30195411242383,
+                    114.81225003873234
+                  ]
+                ]
+              ]
+            }
+          },
+          "letters": [
+            {
+              "pin_idx": 31,
+              "word_idx": 1,
+              "tamil": "வ",
+              "english": "va",
+              "word_ta": "வக்கன்",
+              "word_en": "vakan",
+              "position": [
+                112.91513569482397,
+                -137.29862412664207,
+                114.81376446091606
+              ],
+              "line_no": 4
+            },
+            {
+              "pin_idx": 32,
+              "word_idx": 1,
+              "tamil": "க், க",
+              "english": "k, ka",
+              "word_ta": "வக்கன்",
+              "word_en": "vakan",
+              "position": [
+                112.95116173438297,
+                -137.2986693225534,
+                114.81616967219055
+              ],
+              "line_no": 4
+            },
+            {
+              "pin_idx": 33,
+              "word_idx": 1,
+              "tamil": "ன்",
+              "english": "n",
+              "word_ta": "வக்கன்",
+              "word_en": "vakan",
+              "position": [
+                112.99201022653410,
+                -137.29718170994371,
+                114.81705029014613
+              ],
+              "line_no": 4
+            },
+            {
+              "pin_idx": 34,
+              "word_idx": 2,
+              "tamil": "வி",
+              "english": "vi",
+              "word_ta": "வின்ரலை",
+              "word_en": "vinralai",
+              "position": [
+                113.04865875423102,
+                -137.29733630686275,
+                114.81715220418555
+              ],
+              "line_no": 4
+            },
+            {
+              "pin_idx": 35,
+              "word_idx": 2,
+              "tamil": "ன்",
+              "english": "n",
+              "word_ta": "வின்ரலை",
+              "word_en": "vinralai",
+              "position": [
+                113.10034728741346,
+                -137.29736378452307,
+                114.82041458878756
+              ],
+              "line_no": 4
+            },
+            {
+              "pin_idx": 36,
+              "word_idx": 2,
+              "tamil": "ற",
+              "english": "ra",
+              "word_ta": "வின்ரலை",
+              "word_en": "vinralai",
+              "position": [
+                113.13489560337130,
+                -137.3005640489514,
+                114.82144494540482
+              ],
+              "line_no": 4
+            },
+            {
+              "pin_idx": 37,
+              "word_idx": 2,
+              "tamil": "லை",
+              "english": "lai",
+              "word_ta": "வின்ரலை",
+              "word_en": "vinralai",
+              "position": [
+                113.18678487429085,
+                -137.30382387434057,
+                114.82217239613682
+              ],
+              "line_no": 4
+            },
+            {
+              "pin_idx": 38,
+              "word_idx": 3,
+              "tamil": "வ, டு",
+              "english": "va, du",
+              "word_ta": "வடுகன்",
+              "word_en": "vatukan",
+              "position": [
+                113.22287650417497,
+                -137.3070127804476,
+                114.82364833782391
+              ],
+              "line_no": 4
+            },
+            {
+              "pin_idx": 39,
+              "word_idx": 3,
+              "tamil": "க, ன்",
+              "english": "ka, n",
+              "word_ta": "வடுகன்",
+              "word_en": "vatukan",
+              "position": [
+                113.27017869393143,
+                -137.3024664844522,
+                114.82273842410761
+              ],
+              "line_no": 4
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "line_no": 5,
+          "original_text": "puli kuttip pattān",
+          "transliteration": "puli kuttip paṭṭāṉ",
+          "translations": [
+            {
+              "language_code": "TA",
+              "translated_text": "புலி குத்திப் பட்டான்"
+            },
+            {
+              "language_code": "EN",
+              "translated_text": "...who struck the tiger and fell in battle;..."
+            }
+          ],
+          "annotation": {
+            "id": 10,
+            "line_id": 8,
+            "annotation_method": "3d",
+            "surface_geometry": {
+              "rings": [
+                [
+                  [
+                    112.88245536072573,
+                    -137.31232911647177,
+                    114.81321875476172
+                  ],
+                  [
+                    113.01707228388408,
+                    -137.32160511339424,
+                    114.81716164151297
+                  ],
+                  [
+                    113.16020948194617,
+                    -137.32256162538368,
+                    114.82302864314224
+                  ],
+                  [
+                    113.27481337205944,
+                    -137.3247057665965,
+                    114.8218353479784
+                  ],
+                  [
+                    113.27709942540561,
+                    -137.35518137527478,
+                    114.82236453669216
+                  ],
+                  [
+                    113.16798306895969,
+                    -137.3468589615082,
+                    114.82409438181782
+                  ],
+                  [
+                    113.04141967204411,
+                    -137.35070688225372,
+                    114.81824542261089
+                  ],
+                  [
+                    112.95933548062116,
+                    -137.34523441288596,
+                    114.81824433436483
+                  ],
+                  [
+                    112.88518778201329,
+                    -137.3455550588585,
+                    114.8150436094702
+                  ]
+                ]
+              ]
+            }
+          },
+          "letters": [
+            {
+              "pin_idx": 40,
+              "word_idx": 1,
+              "tamil": "பு",
+              "english": "pu",
+              "word_ta": "புலி",
+              "word_en": "pull",
+              "position": [
+                112.90874191546801,
+                -137.33938441617383,
+                114.81503176798118
+              ],
+              "line_no": 5
+            },
+            {
+              "pin_idx": 51,
+              "word_idx": 1,
+              "tamil": "லி",
+              "english": "li",
+              "word_ta": "புலி",
+              "word_en": "pull",
+              "position": [
+                112.94974979529489,
+                -137.3425159304357,
+                114.81741151578434
+              ],
+              "line_no": 5
+            },
+            {
+              "pin_idx": 41,
+              "word_idx": 2,
+              "tamil": "கு",
+              "english": "ku",
+              "word_ta": "குத்துப்",
+              "word_en": "kuttir",
+              "position": [
+                112.97330434797622,
+                -137.34457657516916,
+                114.81824292117274
+              ],
+              "line_no": 5
+            },
+            {
+              "pin_idx": 42,
+              "word_idx": 2,
+              "tamil": "த்",
+              "english": "th",
+              "word_ta": "குத்துப்",
+              "word_en": "kuttir",
+              "position": [
+                113.01413998803482,
+                -137.34325487320584,
+                114.817540464656
+              ],
+              "line_no": 5
+            },
+            {
+              "pin_idx": 43,
+              "word_idx": 2,
+              "tamil": "து",
+              "english": "thu",
+              "word_ta": "குத்துப்",
+              "word_en": "kuttir",
+              "position": [
+                113.06128141314880,
+                -137.33869138715735,
+                114.81848157086559
+              ],
+              "line_no": 5
+            },
+            {
+              "pin_idx": 44,
+              "word_idx": 2,
+              "tamil": "ப்",
+              "english": "p",
+              "word_ta": "குத்துப்",
+              "word_en": "kuttir",
+              "position": [
+                113.07834868160722,
+                -137.34189572782628,
+                114.82019043675099
+              ],
+              "line_no": 5
+            },
+            {
+              "pin_idx": 45,
+              "word_idx": 3,
+              "tamil": "ப",
+              "english": "pa",
+              "word_ta": "பட்டன்",
+              "word_en": "pattin",
+              "position": [
+                113.11277217943251,
+                -137.35132915821114,
+                114.82281281502709
+              ],
+              "line_no": 5
+            },
+            {
+              "pin_idx": 46,
+              "word_idx": 3,
+              "tamil": "ட்",
+              "english": "t",
+              "word_ta": "பட்டன்",
+              "word_en": "pattin",
+              "position": [
+                113.13946315753935,
+                -137.3544360495267,
+                114.82457376272852
+              ],
+              "line_no": 5
+            },
+            {
+              "pin_idx": 50,
+              "word_idx": 3,
+              "tamil": "ட",
+              "english": "ta",
+              "word_ta": "பட்டன்",
+              "word_en": "pattin",
+              "position": [
+                113.1756321379633,
+                -137.34772443535087,
+                114.82413091541098
+              ],
+              "line_no": 5
+            },
+            {
+              "pin_idx": 47,
+              "word_idx": 3,
+              "tamil": "ன்",
+              "english": "n",
+              "word_ta": "பட்டன்",
+              "word_en": "pattin",
+              "position": [
+                113.21154483252732,
+                -137.33570057581645,
+                114.82274273811028
+              ],
+              "line_no": 5
+            },
+            {
+              "pin_idx": 48,
+              "word_idx": 3,
+              "tamil": "க",
+              "english": "ka",
+              "word_ta": "பட்டன்",
+              "word_en": "pattin",
+              "position": [
+                113.24999219420874,
+                -137.3355295970875,
+                114.8223752845508
+              ],
+              "line_no": 5
+            },
+            {
+              "pin_idx": 49,
+              "word_idx": 3,
+              "tamil": "ல்",
+              "english": "l",
+              "word_ta": "பட்டன்",
+              "word_en": "pattin",
+              "position": [
+                113.28760858429817,
+                -137.3230034035704,
+                114.82192348112018
+              ],
+              "line_no": 5
+            }
+          ]
+        },
+        {
+          "id": 9,
+          "line_no": 6,
+          "original_text": "kal",
+          "transliteration": "kal",
+          "translations": [
+            {
+              "language_code": "TA",
+              "translated_text": "கல்"
+            },
+            {
+              "language_code": "EN",
+              "translated_text": "...this is his memorial stone."
+            }
+          ],
+          "annotation": {
+            "id": 11,
+            "line_id": 9,
+            "annotation_method": "3d",
+            "surface_geometry": {
+              "rings": [
+                [
+                  [
+                    113.0414174144906,
+                    -137.35461204386198,
+                    114.81821897181226
+                  ],
+                  [
+                    113.15630958988298,
+                    -137.35622299035393,
+                    114.82428357055798
+                  ],
+                  [
+                    113.15552518165818,
+                    -137.39141012804652,
+                    114.8258792974244
+                  ],
+                  [
+                    113.04609562367513,
+                    -137.38352030183106,
+                    114.81806710938534
+                  ]
+                ]
+              ]
+            }
+          },
+          "letters": [
+            {
+              "pin_idx": 52,
+              "word_idx": 1,
+              "tamil": "க",
+              "english": "ka",
+              "word_ta": "கல்",
+              "word_en": "kal",
+              "position": [
+                113.12281551910569,
+                -137.37584179197674,
+                114.82468375730211
+              ],
+              "line_no": 6
+            },
+            {
+              "pin_idx": 53,
+              "word_idx": 1,
+              "tamil": "ல்",
+              "english": "l",
+              "word_ta": "கல்",
+              "word_en": "kal",
+              "position": [
+                113.14317205887444,
+                -137.37578827009446,
+                114.82392042712853
+              ],
+              "line_no": 6
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

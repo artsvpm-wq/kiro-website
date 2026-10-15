@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artifact Viewer - DEMO-001</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+        // Inject artifact data into JS global scope
+        window.ARTIFACT_DATA = {
+            "id": 1,
+            "accession_no": "DEMO-001",
+            "title": "Test Artifact (Sample Stone)",
+            "description": "A demonstration artifact for testing the 3D viewer and epigraphical features.",
+            "period_label": "622 BC",
+            "date_text": "7th Century CE",
+            "discovery_location": "Digital Lab",
+            "current_location": "Museum",
+            "material": "Stone",
+            "status": "published",
+            "model_asset": {
+                "id": 1,
+                "artifact_id": 1,
+                "asset_type": "model",
+                "file_path": "assets/files/model.glb"
+            },
+            "inscriptions": [
+                {
+                    "id": 1,
+                    "label": "Main Face Inscription",
+                    "script_name": "Tamil-Brahmi / Vatteluttu",
+                    "language_code": "ta",
+                    "lines": [
+                        {
+                            "id": 4,
+                            "line_no": 1,
+                            "original_text": "kōvicaiya mayēntira",
+                            "translations": [
+                                { "language_code": "TA", "translated_text": "கோவிசைய மயேந்திர" },
+                                { "language_code": "EN", "translated_text": "In the victorious reign of King Mahendra..." }
+                            ],
+                            "annotation": {
+                                "id": 6,
+                                "line_id": 4,
+                                "annotation_method": "3d",
+                                "surface_geometry_json": "{\"rings\":[[[112.88717608739812,-137.1172629067695,114.8094413734674],[112.87969587474582,-137.16237964014022,114.80755732965264],[113.2960932880017,-137.18227152514513,114.81980311721128],[113.28994593807857,-137.14451903781668,114.81889622499372]]]}"
+                            }
+                        },
+                        {
+                            "id": 5,
+                            "line_no": 2,
+                            "original_text": "parumarku muppattirantā",
+                            "translations": [
+                                { "language_code": "TA", "translated_text": "பருமற்கு முப்பத்திரண்டா" },
+                                { "language_code": "EN", "translated_text": "...varman, in the thirty-second..." }
+                            ],
+                            "annotation": {
+                                "id": 7,
+                                "line_id": 5,
+                                "annotation_method": "3d",
+                                "surface_geometry_json": "{\"rings\":[[[112.87737251664481,-137.18056363786656,114.80775316959492],[113.27966067005369,-137.19095443675513,114.82015691759358],[113.28034471303064,-137.22864679819122,114.82110456400756],[112.872672849648,-137.2215815309349,114.80788933237699]]]}"
+                            }
+                        },
+                        {
+                            "id": 6,
+                            "line_no": 3,
+                            "original_text": "vatu ponmōtanar cē",
+                            "translations": [
+                                { "language_code": "TA", "translated_text": "வது பொன்மோதனார் சே" },
+                                { "language_code": "EN", "translated_text": "...year; the servant of Ponmodanar,..." }
+                            ],
+                            "annotation": {
+                                "id": 8,
+                                "line_id": 6,
+                                "annotation_method": "3d",
+                                "surface_geometry_json": "{\"rings\":[[[112.87681463529523,-137.22810847324868,114.80883632203984],[113.0404237412002,-137.23913085083663,114.81575384868256],[113.18441057917421,-137.23639259723478,114.82086883840992],[113.2874093906705,-137.23791164945834,114.82068877237654],[113.28265895898232,-137.2731574168861,114.82135298966847],[113.0483363759573,-137.26283832609673,114.81675411404555],[112.93309337004258,-137.26025292434394,114.81562775231268],[112.87691354296997,-137.2573451697181,114.80930152540478]]]}"
+                            }
+                        },
+                        {
+                            "id": 7,
+                            "line_no": 4,
+                            "original_text": "vakan vinralai vatukan",
+                            "translations": [
+                                { "language_code": "TA", "translated_text": "வகன் வின்றலை வடுகன்" },
+                                { "language_code": "EN", "translated_text": "...named Vinralai Vadukan,..." }
+                            ],
+                            "annotation": {
+                                "id": 9,
+                                "line_id": 7,
+                                "annotation_method": "3d",
+                                "surface_geometry_json": "{\"rings\":[[[112.87555061478055,-137.27171412207016,114.81029070492764],[112.96538896443921,-137.28399051387152,114.81685839015083],[113.07347527092999,-137.28270587936544,114.8183074845808],[113.17971642068183,-137.28487342173122,114.82144728409233],[113.2724334353431,-137.2897067977913,114.82226632323975],[113.27481166612979,-137.32003127433086,114.8218528284273],[113.17189296182127,-137.31787784886018,114.82296395974734],[113.0594169834817,-137.31244133522557,114.81848393484921],[112.96304978144495,-137.3051312637093,114.81691722252665],[112.87125706446813,-137.30195411242383,114.81225003873234]]]}"
+                            }
+                        },
+                        {
+                            "id": 8,
+                            "line_no": 5,
+                            "original_text": "puli kuttip pattān",
+                            "translations": [
+                                { "language_code": "TA", "translated_text": "புலி குத்திப் பட்டான்" },
+                                { "language_code": "EN", "translated_text": "...who struck the tiger and fell in battle;..." }
+                            ],
+                            "annotation": {
+                                "id": 10,
+                                "line_id": 8,
+                                "annotation_method": "3d",
+                                "surface_geometry_json": "{\"rings\":[[[112.88245536072573,-137.31232911647177,114.81321875476172],[113.01707228388408,-137.32160511339424,114.81716164151297],[113.16020948194617,-137.32256162538368,114.82302864314224],[113.27481337205944,-137.3247057665965,114.8218353479784],[113.27709942540561,-137.35518137527478,114.82236453669216],[113.16798306895969,-137.3468589615082,114.82409438181782],[113.04141967204411,-137.35070688225372,114.81824542261089],[112.95933548062116,-137.34523441288596,114.81824433436483],[112.88518778201329,-137.3455550588585,114.8150436094702]]]}"
+                            }
+                        },
+                        {
+                            "id": 9,
+                            "line_no": 6,
+                            "original_text": "kal",
+                            "translations": [
+                                { "language_code": "TA", "translated_text": "கல்" },
+                                { "language_code": "EN", "translated_text": "...this is his memorial stone." }
+                            ],
+                            "annotation": {
+                                "id": 11,
+                                "line_id": 9,
+                                "annotation_method": "3d",
+                                "surface_geometry_json": "{\"rings\":[[[113.0414174144906,-137.35461204386198,114.81821897181226],[113.15630958988298,-137.35622299035393,114.82428357055798],[113.15552518165818,-137.39141012804652,114.8258792974244],[113.04609562367513,-137.38352030183106,114.81806710938534]]]}"
+                            }
+                        }
+                    ]
+                }
+            ]
+        };
+    </script>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./assets/vendor/three/three.module.js"
+        }
+      }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>
+            <span>Artifact Viewer - DEMO-001</span>
+            <span class="badge">Mothakkal Nadukal</span>
+        </h1>
+        <nav>
+            <a href="archive.html">&larr; Back to Archive</a>
+            <a href="admin/annotation-3d.html" class="nav-button">3D Editor</a>
+            <a href="admin/annotation-2d.html" class="nav-button">2D Editor</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- 3D Viewer Container -->
+        <div class="viewer-container">
+            <div id="loading-indicator">
+                <div class="spinner"></div>
+                <span>Loading 3D Stone Model...</span>
+            </div>
+            <div id="canvas-container"></div>
+            
+            <!-- Floating Hover Tooltip for 3D Mesh Highlights -->
+            <div id="tooltip-3d"></div>
+            
+            <!-- Left Controls: Letter/Word/Line + Tracing + Texture -->
+            <div class="viewer-controls-top">
+                <div class="mode-toggle-group">
+                    <button id="btn-mode-letters" class="mode-btn" title="Hover letters">Letter</button>
+                    <button id="btn-mode-words"   class="mode-btn active" title="Hover words">Word</button>
+                    <button id="btn-mode-lines"   class="mode-btn" title="Hover lines">Line</button>
+                </div>
+                <div class="check-controls">
+                    <label class="check-label" title="Show/hide Tamil labels on stone">
+                        <input type="checkbox" id="chk-tracing" checked>
+                        Tracing on stone
+                    </label>
+                    <label class="check-label" title="Show/hide texture">
+                        <input type="checkbox" id="chk-texture" checked>
+                        Texture
+                    </label>
+                </div>
+                <div class="btn-ctrl-group">
+                    <button id="btn-focus-inscr" class="btn-ctrl-sm" title="Focus Inscription">🔍 Inscription</button>
+                    <button id="btn-reset-cam"   class="btn-ctrl-sm" title="Reset View">🔄 Reset</button>
+                </div>
+            </div>
+            
+            <!-- Floating Metadata Panel -->
+            <div class="floating-metadata">
+                <h3>Metadata</h3>
+                <div class="metadata-grid">
+                    <span class="metadata-label">Accession:</span>
+                    <span class="metadata-value">DEMO-001</span>
+                    <span class="metadata-label">Title:</span>
+                    <span class="metadata-value">Test Artifact (Sample Stone)</span>
+                    <span class="metadata-label">Period:</span>
+                    <span class="metadata-value">622 BC</span>
+                    <span class="metadata-label">Material:</span>
+                    <span class="metadata-value">Stone</span>
+                    <span class="metadata-label">Location:</span>
+                    <span class="metadata-value">Museum</span>
+                </div>
+            </div>
+
+            <!-- Interaction Hints Overlay -->
+            <div class="interaction-hints">
+                <span>🖱️ Drag to rotate</span>
+                <span>🖱️ Scroll to zoom</span>
+                <span id="hint-hover-mode">✨ Hover lines or letters to read</span>
+            </div>
+        </div>
+
+        <!-- Right Panel: Epigraphy -->
+        <div class="side-panel">
+            <div class="panel-section" style="padding-top: 1.25rem;">
+                <h2>
+                    <span>Transcription & Translation</span>
+                </h2>
+
+                <!-- Word / Letter info card — shown on hover -->
+                <div id="hover-info-card" class="hover-info-card hidden">
+                    <div class="hic-meta" id="hic-meta"></div>
+                    <div class="hic-tamil" id="hic-tamil"></div>
+                    <div class="hic-translit" id="hic-translit"></div>
+                    <div class="hic-meaning" id="hic-meaning"></div>
+                    <div class="hic-note" id="hic-note"></div>
+                </div>
+                <div id="hover-info-card-empty" class="hover-info-card-empty">
+                    <span class="hic-empty-title">NOTHING SELECTED</span>
+                    <p>Hover over a letter on the stone, the tracing or the reading. Switch between letter, word and line above the stone.</p>
+                </div>
+                
+                <div class="tracing-image-container">
+                    <img src="assets/files/WhatsApp Image 2026-10-10 at 22.41.05.jpeg" alt="Hero Stone Tracing (Mothakkal)">
+                </div>
+
+                <div class="inscription-block">
+                    <!-- Line 1 -->
+                    <div class="transcription-line" data-line-id="4" data-line-no="1">
+                        <div class="line-header">
+                            <span class="line-number">Line 1</span>
+                            <span class="line-badge">9 aksharas</span>
+                        </div>
+                        <div class="original-text">kōvicaiya mayēntira</div>
+                        <div class="translation">
+                            <span class="lang-tag">TA</span><br>
+                            கோவிசைய மயேந்திர
+                        </div>
+                        <div class="translation-en">In the victorious reign of King Mahendra...</div>
+                        
+                        <div class="line-letters-container">
+                            <div class="letters-row english-letters">
+                                <span class="letters-label">EN:</span>
+                                <div class="word-group">
+                                    <span class="letter-pill" data-pin-idx="0" data-line-no="1" title="ko (கோ)">ko</span>
+                                    <span class="letter-pill" data-pin-idx="1" data-line-no="1" title="vi (வி)">vi</span>
+                                    <span class="letter-pill" data-pin-idx="2" data-line-no="1" title="cai (சை)">cai</span>
+                                    <span class="letter-pill" data-pin-idx="3" data-line-no="1" title="ya (ய)">ya</span>
+                                </div>
+                                <span class="word-separator">|</span>
+                                <div class="word-group">
+                                    <span class="letter-pill" data-pin-idx="4" data-line-no="1" title="ma (ம)">ma</span>
+                                    <span class="letter-pill" data-pin-idx="5" data-line-no="1" title="ye (யே)">ye</span>
+                                    <span class="letter-pill" data-pin-idx="6" data-line-no="1" title="n (ந்)">n</span>
+                                    <span class="letter-pill" data-pin-idx="7" data-line-no="1" title="thi (தி)">thi</span>
+                                    <span class="letter-pill" data-pin-idx="8" data-line-no="1" title="ra (ரா)">ra</span>
+                                </div>
+                            </div>
+                            <div class="letters-row tamil-letters">
+                                <span class="letters-label">தமிழ்:</span>
+                                <div class="word-group">
+                                    <span class="letter-pill" data-pin-idx="0" data-line-no="1" title="கோ (ko)">கோ</span>
+                                    <span class="letter-pill" data-pin-idx="1" data-line-no="1" title="வி (vi)">வி</span>
+                                    <span class="letter-pill" data-pin-idx="2" data-line-no="1" title="சை (cai)">சை</span>
+                                    <span class="letter-pill" data-pin-idx="3" data-line-no="1" title="ய (ya)">ய</span>
+                                </div>
+                                <span class="word-separator">|</span>
+                                <div class="word-group">
+                                    <span class="letter-pill" data-pin-idx="4" data-line-no="1" title="ம (ma)">ம</span>
+                                    <span class="letter-pill" data-pin-idx="5" data-line-no="1" title="யே (ye)">யே</span>
+                                    <span class="letter-pill" data-pin-idx="6" data-line-no="1" title="ந் (n)">ந்</span>
+                                    <span class="letter-pill" data-pin-idx="7" data-line-no="1" title="தி (thi)">தி</span>
+                                    <span class="letter-pill" data-pin-idx="8" data-line-no="1" title="ரா (ra)">ரா</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Line 2 -->
+                    <div class="transcription-line" data-line-id="5" data-line-no="2">
+                        <div class="line-header">
+                            <span class="line-number">Line 2</span>
+                            <span class="line-badge">13 aksharas</span>
+                        </div>
+                        <div class="original-text">parumarku muppattirantā</div>
+                        <div class="translation">
+                            <span class="lang-tag">TA</span><br>
+                            பருமற்கு முப்பத்திரண்டா
+                        </div>
+                        <div class="translation-en">...varman, in the thirty-second year...</div>
+                        
+                        <div class="line-letters-container">
+                            <div class="letters-row english-letters">
+                                <span class="letters-label">EN:</span>
+                                <div class="word-group">
+                                    <span class="letter-pill" data-pin-idx="9" data-line-no="2" title="pa (ப)">pa</span>
+                                    <span class="letter-pill" data-pin-idx="10" data-line-no="2" title="ru (ரு)">ru</span>
+                                    <span class="letter-pill" data-pin-idx="11" data-line-no="2" title="ma (ம)">ma</span>
+                                    <span class="letter-pill" data-pin-idx="12" data-line-no="2" title="r (ற்)">r</span>
+                                    <span class="letter-pill" data-pin-idx="13" data-line-no="2" title="ku (கு)">ku</span>
+                                </div>
+                                <span class="word-separator">|</span>
+                                <div class="word-group">
+                                    <span class="letter-pill" data-pin-idx="14" data-line-no="2" title="mu (மு)">mu</span>
+                                    <span class="letter-pill" data-pin-idx="15" data-line-no="2" title="p (ப்)">p</span>
+                                    <span class="letter-pill" data-pin-idx="16" data-line-no="2" title="pa (ப)">pa</span>
+                                    <span class="letter-pill" data-pin-idx="17" data-line-no="2" title="th (த்)">th</span>
+                                    <span class="letter-pill" data-pin-idx="18" data-line-no="2" title="thi (தி)">thi</span>
+                                    <span class="letter-pill" data-pin-idx="19" data-line-no="2" title="ra (ர)">ra</span>
+                                    <span class="letter-pill" data-pin-idx="20" data-line-no="2" title="n (ண்)">n</span>
+                                    <span class="letter-pill" data-pin-idx="21" data-line-no="2" title="da (டா)">da</span>
+                                </div>
+                            </div>
+                            <div class="letters-row tamil-letters">
+                                <span class="letters-label">தமிழ்:</span>
+                                <div class="word-group">
+                                    <span class="letter-pill" data-pin-idx="9" data-line-no="2" title="ப (pa)">ப</span>
+                                    <span class="letter-pill" data-pin-idx="10" data-line-no="2" title="ரு (ru)">ரு</span>
+                                    <span class="letter-pill" data-pin-idx="11" data-line-no="2" title="ம (ma)">ம</span>
+                                    <span class="letter-pill" data-pin-idx="12" data-line-no="2" title="ற் (r)">ற்</span>
+                                    <span class="letter-pill" data-pin-idx="13" data-line-no="2" title="கு (ku)">கு</span>
+                                </div>
+                                <span class="word-separator">|</span>
+                                <div class="word-group">
+                                    <span class="letter-pill" data-pin-idx="14" data-line-no="2" title="மு (mu)">மு</span>
+                                    <span class="letter-pill" data-pin-idx="15" data-line-no="2" title="ப் (p)">ப்</span>
+                                    <span class="letter-pill" data-pin-idx="16" data-line-no="2" title="ப (pa)">ப</span>
+                                    <span class="letter-pill" data-pin-idx="17" data-line-no="2" title="த் (th)">த்</span>
+                                    <span class="letter-pill" data-pin-idx="18" data-line-no="2" title="தி (thi)">தி</span>
+                                    <span class="letter-pill" data-pin-idx="19" data-line-no="2" title="ர (ra)">ர</span>
+                                    <span class="letter-pill" data-pin-idx="20" data-line-no="2" title="ண் (n)">ண்</span>
+                                    <span class="letter-pill" data-pin-idx="21" data-line-no="2" title="டா (da)">டா</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Line 3 -->
+                    <div class="transcription-line" data-line-id="6" data-line-no="3">
+                        <div class="line-header">
+                            <span class="line-number">Line 3</span>
+                            <span class="line-badge">9 aksharas</span>
+                        </div>
+                        <div class="original-text">vatu ponmōtanar cē</div>
+                        <div class="translation">
+                            <span class="lang-tag">TA</span><br>
+                            வது பொன்மோதனார் சே
+                        </div>
+                        <div class="translation-en">...the loyal servant of Ponmodanar,...</div>
+                        
+                        <div class="line-letters-container">
+                            <div class="letters-row english-letters">
+                                <span class="letters-label">EN:</span>
+                                <div class="word-group">
+                                    <span class="letter-pill" data-pin-idx="22" data-line-no="3" title="va (வ)">va</span>
+                                    <span class="letter-pill" data-pin-idx="23" data-line-no="3" title="thu (து)">thu</span>
+                                </div>
+                                <span class="word-separator">|</span>
+                                <div class="word-group">
+                                    <span class="letter-pill" data-pin-idx="24" data-line-no="3" title="po (பொ)">po</span>
+                                    <span class="letter-pill" data-pin-idx="25" data-line-no="3" title="n (ன்)">n</span>
+                                    <span class="letter-pill" data-pin-idx="26" data-line-no="3" title="mo (மோ)">mo</span>
+                                    <span class="letter-pill" data-pin-idx="27" data-line-no="3" title="da (ட)">da</span>
+                                    <span class="letter-pill" data-pin-idx="28" data-line-no="3" title="naa (னா)">naa</span>
+                                    <span class="letter-pill" data-pin-idx="29" data-line-no="3" title="r (ர்)">r</span>
+                                </div>
+                                <span class="word-separator">|</span>
+                                <div class="word-group">
+                                    <span class="letter-pill" data-pin-idx="30" data-line-no="3" title="se (சே)">se</span>
+                                </div>
+                            </div>
+                            <div class="letters-row tamil-letters">
+                                <span class="letters-label">தமிழ்:</span>
+                                <div class="word-group">
+                                    <span class="letter-pill" data-pin-idx="22" data-line-no="3" title="வ (va)">வ</span>
+                                    <span class="letter-pill" data-pin-idx="23" data-line-no="3" title="து (thu)">து</span>
+                                </div>
+                                <span class="word-separator">|</span>
+                                <div class="word-group">
+                                    <span class="letter-pill" data-pin-idx="24" data-line-no="3" title="பொ (po)">பொ</span>
+                                    <span class="letter-pill" data-pin-idx="25" data-line-no="3" title="ன் (n)">ன்</span>
+                                    <span class="letter-pill" data-pin-idx="26" data-line-no="3" title="மோ (mo)">மோ</span>
+                                    <span class="letter-pill" data-pin-idx="27" data-line-no="3" title="ட (da)">ட</span>
+                                    <span class="letter-pill" data-pin-idx="28" data-line-no="3" title="னா (naa)">னா</span>
+                                    <span class="letter-pill" data-pin-idx="29" data-line-no="3" title="ர் (r)">ர்</span>
+                                </div>
+                                <span class="word-separator">|</span>
+                                <div class="word-group">
+                                    <span class="letter-pill" data-pin-idx="30" data-line-no="3" title="சே (se)">சே</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Line 4 -->
+                    <div class="transcription-line" data-line-id="7" data-line-no="4">
+                        <div class="line-header">
+                            <span class="line-number">Line 4</span>
+                            <span class="line-badge">12 aksharas</span>
+                        </div>
+                        <div class="original-text">vakan vinralai vatukan</div>
+                        <div class="translation">
+                            <span class="lang-tag">TA</span><br>
+                            வகன் வின்றலை வடுகன்
+                        </div>
+                        <div class="translation-en">...named Vinralai Vadukan,...</div>
+                        
+                        <div class="line-letters-container">
+                            <div class="letters-row english-letters">
+                                <span class="letters-label">EN:</span>
+                                <div class="word-group">
+                                    <span class="letter-pill" data-pin-idx="31" data-line-no="4" title="va (வ)">va</span>
+                                    <span class="letter-pill" data-pin-idx="32" data-line-no="4" title="k (க்)">k</span>
+                                    <span class="letter-pill" data-pin-idx="32" data-line-no="4" title="ka (க)">ka</span>
+                                    <span class="letter-pill" data-pin-idx="33" data-line-no="4" title="n (ன்)">n</span>
+                                </div>
+                                <span class="word-separator">|</span>
+                                <div class="word-group">
+                                    <span class="letter-pill" data-pin-idx="34" data-line-no="4" title="vi (வி)">vi</span>
+                                    <span class="letter-pill" data-pin-idx="35" data-line-no="4" title="n (ன்)">n</span>
+                                    <span class="letter-pill" data-pin-idx="36" data-line-no="4" title="ra (ற)">ra</span>
+                                    <span class="letter-pill" data-pin-idx="37" data-line-no="4" title="lai (லை)">lai</span>
+                                </div>
+                                <span class="word-separator">|</span>
+                                <div class="word-group">
+                                    <span class="letter-pill" data-pin-idx="38" data-line-no="4" title="va (வ)">va</span>
+                                    <span class="letter-pill" data-pin-idx="38" data-line-no="4" title="du (டு)">du</span>
+                                    <span class="letter-pill" data-pin-idx="39" data-line-no="4" title="ka (க)">ka</span>
+                                    <span class="letter-pill" data-pin-idx="39" data-line-no="4" title="n (ன்)">n</span>
+                                </div>
+                            </div>
+                            <div class="letters-row tamil-letters">
+                                <span class="letters-label">தமிழ்:</span>
+                                <div class="word-group">
+                                    <span class="letter-pill" data-pin-idx="31" data-line-no="4" title="வ (va)">வ</span>
+                                    <span class="letter-pill" data-pin-idx="32" data-line-no="4" title="க் (k)">க்</span>
+                                    <span class="letter-pill" data-pin-idx="32" data-line-no="4" title="க (ka)">க</span>
+                                    <span class="letter-pill" data-pin-idx="33" data-line-no="4" title="ன் (n)">ன்</span>
+                                </div>
+                                <span class="word-separator">|</span>
+                                <div class="word-group">
+                                    <span class="letter-pill" data-pin-idx="34" data-line-no="4" title="வி (vi)">வி</span>
+                                    <span class="letter-pill" data-pin-idx="35" data-line-no="4" title="ன் (n)">ன்</span>
+                                    <span class="letter-pill" data-pin-idx="36" data-line-no="4" title="ற (ra)">ற</span>
+                                    <span class="letter-pill" data-pin-idx="37" data-line-no="4" title="லை (lai)">லை</span>
+                                </div>
+                                <span class="word-separator">|</span>
+                                <div class="word-group">
+                                    <span class="letter-pill" data-pin-idx="38" data-line-no="4" title="வ (va)">வ</span>
+                                    <span class="letter-pill" data-pin-idx="38" data-line-no="4" title="டு (du)">டு</span>
+                                    <span class="letter-pill" data-pin-idx="39" data-line-no="4" title="க (ka)">க</span>
+                                    <span class="letter-pill" data-pin-idx="39" data-line-no="4" title="ன் (n)">ன்</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Line 5 -->
+                    <div class="transcription-line" data-line-id="8" data-line-no="5">
+                        <div class="line-header">
+                            <span class="line-number">Line 5</span>
+                            <span class="line-badge">10 aksharas</span>
+                        </div>
+                        <div class="original-text">puli kuttip pattān</div>
+                        <div class="translation">
+                            <span class="lang-tag">TA</span><br>
+                            புலி குத்துப் பட்டன்
+                        </div>
+                        <div class="translation-en">...who fought and speared the tiger and fell in heroic combat;...</div>
+                        
+                        <div class="line-letters-container">
+                            <div class="letters-row english-letters">
+                                <span class="letters-label">EN:</span>
+                                <div class="word-group">
+                                    <span class="letter-pill" data-pin-idx="40" data-line-no="5" title="pu (பு)">pu</span>
+                                    <span class="letter-pill" data-pin-idx="51" data-line-no="5" title="li (லி)">li</span>
+                                </div>
+                                <span class="word-separator">|</span>
+                                <div class="word-group">
+                                    <span class="letter-pill" data-pin-idx="41" data-line-no="5" title="ku (கு)">ku</span>
+                                    <span class="letter-pill" data-pin-idx="42" data-line-no="5" title="th (த்)">th</span>
+                                    <span class="letter-pill" data-pin-idx="43" data-line-no="5" title="thu (து)">thu</span>
+                                    <span class="letter-pill" data-pin-idx="44" data-line-no="5" title="p (ப்)">p</span>
+                                </div>
+                                <span class="word-separator">|</span>
+                                <div class="word-group">
+                                    <span class="letter-pill" data-pin-idx="45" data-line-no="5" title="pa (ப)">pa</span>
+                                    <span class="letter-pill" data-pin-idx="46" data-line-no="5" title="t (ட்)">t</span>
+                                    <span class="letter-pill" data-pin-idx="50" data-line-no="5" title="ta (ட)">ta</span>
+                                    <span class="letter-pill" data-pin-idx="47" data-line-no="5" title="n (ன்)">n</span>
+                                </div>
+                            </div>
+                            <div class="letters-row tamil-letters">
+                                <span class="letters-label">தமிழ்:</span>
+                                <div class="word-group">
+                                    <span class="letter-pill" data-pin-idx="40" data-line-no="5" title="பு (pu)">பு</span>
+                                    <span class="letter-pill" data-pin-idx="51" data-line-no="5" title="லி (li)">லி</span>
+                                </div>
+                                <span class="word-separator">|</span>
+                                <div class="word-group">
+                                    <span class="letter-pill" data-pin-idx="41" data-line-no="5" title="கு (ku)">கு</span>
+                                    <span class="letter-pill" data-pin-idx="42" data-line-no="5" title="த் (th)">த்</span>
+                                    <span class="letter-pill" data-pin-idx="43" data-line-no="5" title="து (thu)">து</span>
+                                    <span class="letter-pill" data-pin-idx="44" data-line-no="5" title="ப் (p)">ப்</span>
+                                </div>
+                                <span class="word-separator">|</span>
+                                <div class="word-group">
+                                    <span class="letter-pill" data-pin-idx="45" data-line-no="5" title="ப (pa)">ப</span>
+                                    <span class="letter-pill" data-pin-idx="46" data-line-no="5" title="ட் (t)">ட்</span>
+                                    <span class="letter-pill" data-pin-idx="50" data-line-no="5" title="ட (ta)">ட</span>
+                                    <span class="letter-pill" data-pin-idx="47" data-line-no="5" title="ன் (n)">ன்</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Line 6 -->
+                    <div class="transcription-line" data-line-id="9" data-line-no="6">
+                        <div class="line-header">
+                            <span class="line-number">Line 6</span>
+                            <span class="line-badge">2 aksharas</span>
+                        </div>
+                        <div class="original-text">kal</div>
+                        <div class="translation">
+                            <span class="lang-tag">TA</span><br>
+                            கல்
+                        </div>
+                        <div class="translation-en">...this is his hero memorial stone.</div>
+                        
+                        <div class="line-letters-container">
+                            <div class="letters-row english-letters">
+                                <span class="letters-label">EN:</span>
+                                <div class="word-group">
+                                    <span class="letter-pill" data-pin-idx="52" data-line-no="6" title="ka (க)">ka</span>
+                                    <span class="letter-pill" data-pin-idx="53" data-line-no="6" title="l (ல்)">l</span>
+                                </div>
+                            </div>
+                            <div class="letters-row tamil-letters">
+                                <span class="letters-label">தமிழ்:</span>
+                                <div class="word-group">
+                                    <span class="letter-pill" data-pin-idx="52" data-line-no="6" title="க (ka)">க</span>
+                                    <span class="letter-pill" data-pin-idx="53" data-line-no="6" title="ல் (l)">ல்</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Epigraphical & Historical Notes -->
+                <div class="history-card">
+                    <h4>📜 Epigraphical Context</h4>
+                    <p>
+                        This memorial hero stone (<em>Naṭukal</em>) was discovered in <strong>Mothakkal</strong> (Chengam taluk, Tamil Nadu). 
+                        It commemorates the hero <strong>Vinralai Vadukan</strong> who died defending his cattle and community against a predatory tiger. 
+                        Inscribed in early Tamil <strong>Vatteluttu</strong> script, it dates to the 32nd regnal year of Pallava King <strong>Mahendravarman I</strong> (622 CE).
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ES Module script for Three.js viewer -->
+    <script type="module" src="assets/js/viewer.js"></script>
+</body>
+</html>

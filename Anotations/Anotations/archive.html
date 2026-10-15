@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epigraphical Digital Archive</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .home-container {
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex: 1;
+            overflow-y: auto;
+        }
+        .section-header {
+            margin-bottom: 2rem;
+        }
+        .section-header h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+        .artifact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 1.5rem;
+        }
+        .artifact-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+        }
+        .artifact-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+            border-color: #cbd5e1;
+        }
+        .card-thumb {
+            height: 220px;
+            background: #243342;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .card-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .artifact-card:hover .card-thumb img {
+            transform: scale(1.04);
+        }
+        .card-tag {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(6px);
+            color: #f1c40f;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .card-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        .card-body h3 {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .card-meta {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        .card-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-main);
+            line-height: 1.5;
+            margin-bottom: 1.25rem;
+            flex: 1;
+        }
+        .card-actions {
+            display: flex;
+            gap: 0.5rem;
+            border-top: 1px solid #f1f5f9;
+            padding-top: 1rem;
+        }
+        .btn-card {
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .btn-card-primary {
+            background: var(--primary-color);
+            color: white;
+            flex: 2;
+        }
+        .btn-card-primary:hover {
+            background: #1a2530;
+        }
+        .btn-card-secondary {
+            background: #f1f5f9;
+            color: var(--text-main);
+            flex: 1;
+        }
+        .btn-card-secondary:hover {
+            background: #e2e8f0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>
+            <span>Interactive Epigraphical Digital Archive</span>
+        </h1>
+        <nav>
+            <a href="index.html">3D Viewer</a>
+            <a href="admin/annotation-3d.html" class="nav-button">3D Annotation Editor</a>
+            <a href="admin/annotation-2d.html" class="nav-button">2D Tracing Editor</a>
+        </nav>
+    </header>
+
+    <div class="home-container">
+        <div class="section-header">
+            <h2>Published Epigraphical Artifacts</h2>
+            <p>High-resolution 3D photogrammetry models with bilingual transcriptions and interactive spatial epigraphical annotations.</p>
+        </div>
+
+        <div class="artifact-grid">
+            <div class="artifact-card">
+                <div class="card-thumb">
+                    <img src="assets/files/tex_u0_v0_diffuse.jpg" alt="Mothakkal Hero Stone">
+                    <span class="card-tag">3D Interactive</span>
+                </div>
+                <div class="card-body">
+                    <h3>Test Artifact (Sample Stone)</h3>
+                    <div class="card-meta">
+                        <span>🏷️ <strong>DEMO-001</strong></span>
+                        <span>⏳ <strong>622 BC / 7th C. CE</strong></span>
+                        <span>📍 <strong>Museum</strong></span>
+                    </div>
+                    <p class="card-desc">
+                        Nadukal memorial stone from Mothakkal commemorating warrior Vinralai Vadukan who killed a tiger. 
+                        Features 6 lines of early Tamil Vatteluttu script with interactive surface highlights.
+                    </p>
+                    <div class="card-actions">
+                        <a href="index.html" class="btn-card btn-card-primary">Open 3D Viewer &rarr;</a>
+                        <a href="admin/annotation-3d.html" class="btn-card btn-card-secondary">Edit 3D</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
